@@ -13,16 +13,16 @@ def _constrain_positive_int(n: Any, allow_zero: bool = False) -> None:
 
 
 def constrain_positive(f):
-    def wrapper(n):
+    def wrapper(n, **kwargs):
         _constrain_positive_int(n)
-        return f(n)
+        return f(n, **kwargs)
 
     return wrapper
 
 
 def constrain_positive_or_zero(f):
-    def wrapper(n):
+    def wrapper(n, **kwargs):
         _constrain_positive_int(n, allow_zero=True)
-        return f(n)
+        return f(n, **kwargs)
 
     return wrapper
